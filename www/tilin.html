@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoWarrior - Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url(../imagenes/fondorecycling.jpeg) center/cover fixed no-repeat;
+      color: white;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+
+
+
+    /* Menú lateral */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -250px;
+      width: 250px;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .sidebar img {
+      width: 120px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px;
+      margin: 8px 0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: #4a7c59;
+    }
+
+    /* Botón menú */
+    .menu-btn {
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      font-size: 25px;
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 15px;
+      border-radius: 10px;
+      z-index: 1100;
+      color: white;
+    }
+
+    /* Barra de navegación superior */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      padding: 15px 0;
+      background: rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #90EE90;
+      border-bottom: 2px solid #90EE90;
+    }
+
+    /* Contenedor principal */
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-areas:
+        "kpis kpis kpis kpis"
+        "donut bar estado reportes"
+        "historial historial historial historial";
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto auto;
+      gap: 20px;
+    }
+
+    /* Tarjetas */
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      color: #f0f0f0;
+    }
+
+    .kpis {
+      grid-area: kpis;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .kpis .card {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 1em;
+      opacity: 0.9;
+    }
+
+    .donut { grid-area: donut; }
+    .bar { grid-area: bar; }
+    .estado { grid-area: estado; }
+    .reportes { grid-area: reportes; }
+    .historial { grid-area: historial; }
+
+    .section-title {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: #90EE90;
+    }
+
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 10px; }
+
+    /* Hojas flotantes */
+    .floating-leaves {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .leaf {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(45deg, #90EE90, #32CD32);
+      border-radius: 0 100% 0 100%;
+      animation: float 10s infinite linear;
+      opacity: 0.3;
+    }
+
+    .leaf:nth-child(even) {
+      border-radius: 100% 0 100% 0;
+      background: linear-gradient(45deg, #228B22, #6B8E23);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    @media(max-width: 1000px) {
+      .container {
+        grid-template-areas:
+          "kpis"
+          "donut"
+          "bar"
+          "estado"
+          "reportes"
+          "historial";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Hojas flotantes animadas -->
+  <div class="floating-leaves">
+    <div class="leaf" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="leaf" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="leaf" style="left: 30%; animation-delay: 4s;"></div>
+    <div class="leaf" style="left: 40%; animation-delay: 6s;"></div>
+    <div class="leaf" style="left: 50%; animation-delay: 1s;"></div>
+    <div class="leaf" style="left: 60%; animation-delay: 3s;"></div>
+    <div class="leaf" style="left: 70%; animation-delay: 5s;"></div>
+    <div class="leaf" style="left: 80%; animation-delay: 7s;"></div>
+    <div class="leaf" style="left: 90%; animation-delay: 2.5s;"></div>
+  </div>
+
+  <!-- Botón menú -->
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <!-- Menú lateral -->
+  <div class="sidebar" id="sidebar">
+    <img src="logo.png" alt="Logo">
+    <a href="materialespablo.html">Materiales reciclables</a>
+    <a href="puntos-recoleccion.html">Puntos de recolección</a>
+    <a href="recompensas3.html">Recompensas</a>
+    <a href="tilin.html">Historial y estadísticas</a>
+    <a href="soporte3.html">Soporte y ayuda</a>
+  </div>
+
+  <!-- Menú superior -->
+  <nav class="navbar">
+   <a href="materialespablo.html">Materiales reciclables</a>
+    <a href="puntos-recoleccion.html">Puntos de recolección</a>
+    <a href="recompensas3.html">Recompensas</a>
+    <a href="tilin.html">Historial y estadísticas</a>
+    <a href="soporte3.html">Soporte y ayuda</a>
+  </nav>
+
+  <div class="container">
+    <!-- KPIs principales -->
+    <div class="kpis">
+      <div class="card">
+        <h2>24</h2>
+        <p>Puntos Activos</p>
+      </div>
+      <div class="card">
+        <h2>32</h2>
+        <p>Puntos Inactivos</p>
+      </div>
+      <div class="card">
+        <h2>47</h2>
+        <p>Reportes Hoy</p>
+      </div>
+      <div class="card">
+        <h2>1,847</h2>
+        <p>Kg Reciclados</p>
+      </div>
+    </div>
+
+    <!-- Gráfico de reciclaje -->
+    <div class="card donut">
+      <h3 class="section-title">Reciclaje por Tipo</h3>
+      <canvas id="donutChart"></canvas>
+    </div>
+
+    <!-- Gráfico de reportes semanales -->
+    <div class="card bar">
+      <h3 class="section-title">Reportes Semanales</h3>
+      <canvas id="barChart"></canvas>
+    </div>
+
+    <!-- Estado por zona -->
+    <div class="card estado">
+      <h3 class="section-title">Estado por Zona</h3>
+      <ul>
+        <li>Centro - 68 puntos activos (95%)</li>
+        <li>Norte - 45 puntos activos (78%)</li>
+        <li>Sur - 52 puntos activos (89%)</li>
+        <li>Este - 38 puntos activos (62%)</li>
+        <li>Oeste - 45 puntos activos (84%)</li>
+      </ul>
+    </div>
+
+    <!-- Reportes recientes -->
+    <div class="card reportes">
+      <h3 class="section-title">Reportes Recientes</h3>
+      <ul>
+        <li>📍 María González - Contenedor plástico lleno</li>
+        <li>⚠️ Carlos Ruiz - Punto dañado en Parque Central</li>
+        <li>✅ Ana López - Nuevo punto instalado</li>
+      </ul>
+    </div>
+
+    <!-- Historial completo -->
+    <div class="card historial">
+      <h3 class="section-title">Historial General</h3>
+      <ul>
+        <li>12/09 - Reciclaje de vidrio en Punto Norte</li>
+        <li>12/09 - 5kg plástico entregados en Punto Centro</li>
+        <li>11/09 - Instalación de nuevo punto en el Sur</li>
+        <li>11/09 - 8kg de metal recolectados en el Este</li>
+        <li>10/09 - Contenedor de papel reemplazado en Parque Central</li>
+        <li>09/09 - Evento comunitario de reciclaje en Oeste</li>
+        <li>08/09 - Punto de recolección temporal instalado en feria</li>
+        <li>07/09 - 12kg orgánicos recolectados en Punto Norte</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sidebar").classList.toggle("active");
+    }
+
+    // Donut chart
+    new Chart(document.getElementById('donutChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Plástico', 'Papel', 'Vidrio', 'Metal', 'Orgánico'],
+        datasets: [{
+          data: [35, 21, 18, 12, 7],
+          backgroundColor: ['#4169E1', '#FFA500', '#DC143C', '#B0C4DE', '#228B22']
+        }]
+      },
+      options: {
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
+    // Bar chart
+    new Chart(document.getElementById('barChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+        datasets: [{
+          label: 'Reportes',
+          data: [18, 28, 50, 45, 40, 35, 28],
+          backgroundColor: '#90EE90'
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true } }
+      }
+    });
+  </script>
+</body>
+</html>

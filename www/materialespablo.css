@@ -1,0 +1,544 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: transparent;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Background Image Section */
+    .background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -10;
+      background-image: url('../imagenes/fondorecycling.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+    }
+
+    /* Header Navigation */
+    .navbar {
+      position: relative;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: #4CAF50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      overflow: hidden;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    /* Hamburger Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+      z-index: 60;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      margin: 3px 0;
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 60px;
+      flex: 1;
+      justify-content: center;
+      margin: 0 50px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: #81C784;
+    }
+
+    .nav-links a.active {
+      color: #81C784;
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #81C784;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 300px;
+      height: 100vh;
+      background: rgba(45, 90, 39, 0.95);
+      backdrop-filter: blur(15px);
+      padding-top: 80px;
+      transition: right 0.3s ease;
+      z-index: 55;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-list li {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .menu-list li a {
+      display: flex;
+      align-items: center;
+      padding: 15px 25px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .menu-list li a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #81C784;
+    }
+
+    .menu-list .icon {
+      margin-right: 15px;
+      font-size: 18px;
+      width: 25px;
+      text-align: center;
+    }
+
+    /* Overlay for mobile menu */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 54;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Main Content */
+    .container {
+      position: relative;
+      z-index: 5;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 50px 20px;
+    }
+
+    .page-title {
+      text-align: center;
+      color: white;
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 60px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Centered Recycling Grid */
+    .recycling-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 80px 120px;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      justify-items: center;
+      align-items: start;
+      padding: 40px 20px;
+    }
+
+    .recycling-item {
+      position: relative;
+      text-align: center;
+      width: 100%;
+      max-width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .circle:hover {
+      transform: scale(1.05);
+      border-color: #81C784;
+      box-shadow: 0 0 30px rgba(129, 199, 132, 0.5);
+    }
+
+    .circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .item-label {
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      text-align: center;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Info Bubbles */
+    .info-bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 25px;
+      padding: 30px 35px;
+      color: #2d5a27;
+      font-size: 15px;
+      line-height: 1.7;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(20px);
+      border: 3px solid rgba(129, 199, 132, 0.4);
+      opacity: 0;
+      transform: translateY(30px) scale(0.8);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 380px;
+      min-width: 320px;
+      z-index: 30;
+      visibility: hidden;
+      pointer-events: none;
+      text-align: left;
+    }
+
+    .info-bubble.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    .info-bubble h4 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #1b5e20;
+      border-bottom: 2px solid #4CAF50;
+      padding-bottom: 8px;
+    }
+
+    .info-bubble .subtitle {
+      font-size: 14px;
+      font-style: italic;
+      color: #388e3c;
+      margin-bottom: 15px;
+    }
+
+    .info-bubble ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 15px;
+    }
+
+    .info-bubble li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+      font-weight: 500;
+    }
+
+    .info-bubble li:before {
+      content: '✓';
+      color: #4CAF50;
+      font-size: 16px;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .recycling-process {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .recycling-process h5 {
+      font-size: 14px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 8px;
+    }
+
+    .recycling-process p {
+      font-size: 13px;
+      color: #555;
+    }
+
+    /* Bubble Positioning - Centrado y mejor distribuido */
+    .bubble-metal {
+      top: -50px;
+      right: -200px;
+    }
+
+    .bubble-vidrio {
+      top: -50px;
+      left: -200px;
+    }
+
+    .bubble-plastico {
+      bottom: -50px;
+      left: -200px;
+    }
+
+    .bubble-papel-carton {
+      bottom: -50px;
+      right: -200px;
+    }
+
+    
+  .footer {
+  background: #024c38;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #ffe082;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .nav-links {
+        gap: 40px;
+        margin: 0 30px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .nav-links {
+        gap: 30px;
+        margin: 0 20px;
+      }
+      
+      .nav-links a {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 20px;
+        margin: 0 10px;
+      }
+      
+      .nav-links a {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .recycling-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        max-width: 400px;
+        padding: 20px;
+      }
+      
+      .circle-container {
+        width: 180px;
+        height: 180px;
+      }
+      
+      .info-bubble {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90vw;
+        min-width: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+        margin: 0;
+      }
+      
+      .info-bubble.show {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      
+      .navbar {
+        padding: 15px 20px;
+      }
+      
+      .page-title {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .recycling-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        max-width: 300px;
+        padding: 20px;
+      }
+      
+      .circle-container {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .page-title {
+        font-size: 28px;
+      }
+      
+      .mobile-menu {
+        width: 280px;
+      }
+      
+      .info-bubble {
+        padding: 25px;
+        max-width: 95vw;
+      }
+
+  .footer {
+  background: #024c38;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #ffe082;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+      }

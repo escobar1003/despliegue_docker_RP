@@ -1,0 +1,466 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    
+    color: white;
+
+    
+
+    background-image: url(../imagenes/fondo-recycling-points.jpg.jpeg);
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;   
+    background-attachment: fixed;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+    margin-right: 220px;
+}
+
+.menu-button {
+    font-size: 10px;
+    
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-bottom: 3px;
+    background-image: url(../imagenes/logo-sin-fondo.png);
+    background-size: cover;
+    width: 37px;
+    height: 40px;
+    cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 4px solid white;
+
+}
+
+.app-title {
+    font-weight: bold;
+    font-size: 16px;
+    ;
+    right: 90px;
+}
+
+.navbar-center a {
+    color: rgb(75, 154, 117);
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+    margin-right: 150px;
+    
+}
+
+.navbar-center a:hover {
+    color: #1d6728;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+.content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    z-index: 10;
+    gap: 30px;
+    flex-wrap: wrap;
+
+}
+
+.cards-content {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 40px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d; 
+}
+
+.card {
+  background: #0cac277c; 
+  color: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+ 
+  margin-right: 50px;
+}
+
+button:not(.menu-button):hover  {
+  
+  color: #0a614a;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+}
+
+button:hover {
+  
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  
+}
+
+.menu-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: transparent; }
+
+/* Efecto 3D para el título "Recicla y Gana" */
+.content h2 {
+  font-size: 20px;
+  margin: 0;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.content h2:hover {
+  transform: translateY(-2px) scale(1.03);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+.circle {
+  width: 80px;
+  height: 80px;
+  border: 4px solid white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #024c38; 
+  flex-shrink: 0;
+  background-image: url(../imagenes/logo-sin-fondo.png);
+  background-size: cover;
+  transform: transform 0.3s ease;
+
+
+}
+
+
+.content button {
+  background: white;
+  color: #007b2f;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.content button:hover {
+  background: #f2f2f2;
+  color: #0a614a;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.circle img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(247, 243, 243, 0.7);
+
+}
+
+.circle:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 0 15px rgba(247, 243, 243, 0.7);
+}
+.logo {
+  font-size: 32px;
+  margin-bottom: 5px;
+  
+}
+
+.content h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.content p {
+  font-size: 14px;
+  margin: 6px 0 12px;
+}
+
+button {
+  background: white;
+  color: #007b2f;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #f2f2f2;
+}
+
+
+@media (max-width: 768px) {
+  .cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+  @keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.objetivo {
+    display: flex;
+    align-items: center;
+    padding: 50px 30px;
+    
+    flex-wrap: wrap;
+}
+
+.objetivo1 {
+  display: flex;
+    align-items: center;
+    padding: 50px 30px;
+    
+    flex-wrap: wrap;
+}
+
+.imagen{
+  
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  margin-top: 20px;
+  margin-left: 480px;
+  
+
+}
+
+.card {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  padding: 20px;
+}
+
+.ult{
+  
+  position: absolute;
+  top: 945px;
+  right: 400px;
+}
+
+.ul2{
+  color: #000000;
+  border-radius: 60px;
+}
+
+.ul3{
+  color: #F77D7F;
+}
+
+.img{
+  width: 500px;
+  height: 280px;
+  border-radius: 80px;
+}
+
+.but{
+  color: #0a0a0a;
+  border-radius: 80px;
+  position:absolute;
+  top: 848px;
+  left: 1200px;
+}
+
+.objetivo-img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 30px;
+}
+
+.objetivo-texto {
+    max-width: 800px;
+    margin-right: 10px;
+    margin-left: 250px;
+}
+
+.objetivo-texto h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.objetivo-texto p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.objetivo-texto1 {
+    max-width: 600px;
+    margin-right: 10px;
+    margin-left: 250px;
+}
+
+
+
+.objetivo-texto h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    
+}
+
+.s{
+  color: #00EAFF;
+}
+
+.m {
+    font-size: 16px;
+    line-height: 1.6;
+    
+}
+
+.z{
+  width: 120;
+  height: 60;
+  color: #000000;
+  border-radius: 60px;
+}
+
+
+
+.avatar {
+    width: 120px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-size: cover;
+    
+    top: 20px;
+
+}
+
+.r {
+  color: #00EAFF;
+}
+
+.p{
+  color: #f2f2f2;
+}
+
+.h {
+  color: #F77D7F ;
+}
+
+
+
+
+.c{
+  color: #000000;
+  right: 90px;
+  justify-content: center;
+  width: 180px;
+  height: 40px;
+  border-radius: 50px;
+  
+}
+
+.nuestra-mision{
+  margin-top: 99px;
+  margin-left: 10px;
+  text-align: center;
+  
+  
+}
+
+.nu{
+ color: #00EAFF;  
+}
+
+.btn-mision{
+  color: #000000;
+  border-radius: 70px;
+}
+
+.footer {
+  background: #024c38;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #ffe082;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

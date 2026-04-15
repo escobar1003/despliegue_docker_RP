@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiales Reciclables - Estilo Moderno</title>
+  <link rel="stylesheet" href="materialespablo.css">
+</head>
+<body>
+  <!-- Background Image Section -->
+  <div class="background-container"></div>
+  
+  <nav class="navbar">
+    <div class="logo">
+      <div class="logo-icon">
+        <img src="../imagenes/logo sin fondo.png" alt="EcoRecicla Logo" onerror="this.style.display='none'; this.parentElement.innerHTML='♻';">
+      </div>
+      <span></span>
+    </div>
+    
+    <div class="nav-links">
+      <a href="materialespablo.html" class="active">Materiales reciclables</a>
+      <a href="puntos-recoleccion.html">Puntos de recolección</a>
+      <a href="recompensas3.html">Recompensas</a>
+      <a href="tilin.html">Historial y estadísticas</a>
+      <a href="soporte3.html">Soporte y ayuda</a>
+    </div>
+    
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="menu-list">
+      <li><i class="icon">🏠</i> <a href="usuario.html">Inicio</a></li>
+      <li><i class="icon">♻️</i> <a href="materialespablo.html">Materiales reciclables</a></li>
+      <li><i class="icon">📍</i> <a href="puntos-recoleccion.html">Puntos de recolección</a></li>
+      <li><i class="icon">🎁</i> <a href="recompensas3.html">Recompensas</a></li>
+      <li><i class="icon">📚</i> <a href="#">Educación y Conciencia</a></li>
+      <li><i class="icon">📝</i> <a href="#">Registro</a></li>
+      <li><i class="icon">📊</i> <a href="tilin.html">Historial y estadísticas</a></li>
+      <li><i class="icon">🔔</i> <a href="#">Notificaciones</a></li>
+      <li><i class="icon">📑</i> <a href="#">Mis reportes</a></li>
+      <li><i class="icon">🧾</i> <a href="#">Recibos</a></li>
+    </ul>
+  </div>
+  
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+  <div class="container">
+    <h1 class="page-title">Materiales Reciclables</h1>
+    
+    <div class="recycling-grid">
+      <!-- Vidrio -->
+      <div class="recycling-item" data-type="vidrio">
+        <div class="circle-container">
+          <div class="circle">
+            <img src="../imagenes/vidrio.jpg" alt="Vidrio">
+          </div>
+        </div>
+        <div class="item-label">Vidrio</div>
+        <div class="info-bubble bubble-vidrio">
+          <h4>Vidrio</h4>
+          <p class="subtitle">Material 100% reciclable de forma infinita</p>
+          <p><strong>Proceso de reciclaje:</strong> El vidrio se tritura, se funde a 1,500°C y se moldea en nuevos productos sin perder propiedades.</p>
+          
+          <h5>Materiales aceptados:</h5>
+          <ul>
+            <li>Botellas de bebidas (cerveza, vino, refrescos)</li>
+            <li>Frascos de alimentos y conservas</li>
+            <li>Envases de cosméticos y perfumes</li>
+            <li>Recipientes farmacéuticos</li>
+          </ul>
+
+          <div class="recycling-process">
+            <h5>Beneficios ambientales:</h5>
+            <p>• Ahorra 30% de energía vs. producir vidrio nuevo<br>
+            • Reduce emisiones de CO₂ en un 20%<br>
+            • Un envase de vidrio puede reciclarse indefinidamente</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metal -->
+      <div class="recycling-item" data-type="metal">
+        <div class="circle-container">
+          <div class="circle">
+            <img src="../imagenes/metal.jpg" alt="Metal">
+          </div>
+        </div>
+        <div class="item-label">Metal</div>
+        <div class="info-bubble bubble-metal">
+          <h4>Metal</h4>
+          <p class="subtitle">Recursos altamente valiosos y 100% reciclables</p>
+          <p><strong>Proceso de reciclaje:</strong> Los metales se separan magnéticamente, se funden y se refinan para crear nuevos productos manteniendo sus propiedades.</p>
+          
+          <h5>Tipos de metal reciclable:</h5>
+          <ul>
+            <li>Latas de aluminio (bebidas y alimentos)</li>
+            <li>Latas de acero (conservas y aerosoles)</li>
+            <li>Tapas y chapas metálicas</li>
+            <li>Cables de cobre (sin aislante)</li>
+          </ul>
+
+          <div class="recycling-process">
+            <h5>Impacto económico:</h5>
+            <p>• Reciclar aluminio usa 95% menos energía<br>
+            • Una lata reciclada vuelve al mercado en 60 días<br>
+            • Genera empleos en la industria del reciclaje</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plástico -->
+      <div class="recycling-item" data-type="plastico">
+        <div class="circle-container">
+          <div class="circle">
+            <img src="../imagenes/plastico.jpg" alt="Plástico">
+          </div>
+        </div>
+        <div class="item-label">Plástico</div>
+        <div class="info-bubble bubble-plastico">
+          <h4>Plástico</h4>
+          <p class="subtitle">Reducción significativa del uso de petróleo</p>
+          <p><strong>Proceso de reciclaje:</strong> Los plásticos se clasifican por tipo, se lavan, se trituran y se funden para crear pellets que formarán nuevos productos.</p>
+          
+          <h5>Plásticos reciclables:</h5>
+          <ul>
+            <li>PET #1: Botellas de bebidas y agua</li>
+            <li>HDPE #2: Envases de detergentes y leche</li>
+            <li>PP #5: Envases de yogur y tapas</li>
+            <li>Bolsas plásticas (puntos específicos)</li>
+          </ul>
+
+          <div class="recycling-process">
+            <h5>Datos importantes:</h5>
+            <p>• Una botella PET tarda 450 años en degradarse<br>
+            • Reciclando 1 ton de plástico se ahorran 2,000 litros de petróleo<br>
+            • Se pueden crear: ropa, alfombras, nuevos envases</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Papel carton -->
+      <div class="recycling-item" data-type="papel-carton">
+        <div class="circle-container">
+          <div class="circle">
+            <img src="../imagenes/carton.jpg" alt="Papel y Cartón">
+          </div>
+        </div>
+        <div class="item-label">Papel y cartón</div>
+        <div class="info-bubble bubble-papel-carton">
+          <h4>Papel y cartón</h4>
+          <p class="subtitle">Residuos reciclables de uso común que pueden transformarse en nuevos productos</p>
+          <p><strong>Proceso de reciclaje:</strong> Se recolecta, clasifica, prensa y se lleva a plantas de reciclaje donde se tritura y convierte en pulpa para fabricar papel y cartón reciclado.</p>
+          
+          <h5>Tipos de papel y cartón:</h5>
+          <ul>
+            <li>Papel de oficina y hojas impresas</li>
+            <li>Revistas y periódicos</li>
+            <li>Cajas de cartón corrugado</li>
+            <li>Empaques y cartulinas</li>
+          </ul>
+
+          <div class="recycling-process">
+            <h5>Impacto ambiental:</h5>
+            <p>• Reciclar 1 tonelada de papel salva 17 árboles<br>
+            • Reduce en un 74% la contaminación del aire<br>
+            • ♻️ Ahorra agua y energía en su producción</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2025 🐱‍👤Recycling Points♻♻💹. Todos los derechos reservados.</p>
+    <a href="#">Consulta nuestros Términos y Condiciones</a>
+  </div>
+</footer>
+  <script>
+    // Professional interactive functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const items = document.querySelectorAll('.recycling-item');
+      const hamburger = document.getElementById('hamburger');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      let currentlyOpen = null;
+      
+      // Hamburger menu functionality
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      // Close menu when clicking overlay
+      menuOverlay.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close menu when clicking a link
+      document.querySelectorAll('.menu-list a').forEach(link => {
+        link.addEventListener('click', function() {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+      
+      // Recycling items functionality
+      items.forEach((item, index) => {
+        const circle = item.querySelector('.circle');
+        const bubble = item.querySelector('.info-bubble');
+        
+        // Click handler for professional mode interaction
+        circle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          
+          // If clicking the same item, toggle it
+          if (currentlyOpen === item) {
+            bubble.classList.remove('show');
+            currentlyOpen = null;
+            document.body.style.overflow = '';
+            return;
+          }
+          
+          // Close currently open bubble
+          if (currentlyOpen) {
+            const currentBubble = currentlyOpen.querySelector('.info-bubble');
+            currentBubble.classList.remove('show');
+          }
+          
+          // Open clicked bubble
+          if (bubble) {
+            bubble.classList.add('show');
+            currentlyOpen = item;
+            
+            // Prevent body scroll on mobile when bubble is open
+            if (window.innerWidth <= 768) {
+              document.body.style.overflow = 'hidden';
+            }
+            
+            // Add subtle animation effect
+            circle.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+              circle.style.transform = 'scale(1)';
+            }, 200);
+          }
+        });
+        
+        // Hover effects (subtle for professional look)
+        circle.addEventListener('mouseenter', function() {
+          if (currentlyOpen !== item) {
+            this.style.transform = 'scale(1.02)';
+            this.style.borderColor = '#81C784';
+          }
+        });
+        
+        circle.addEventListener('mouseleave', function() {
+          if (currentlyOpen !== item) {
+            this.style.transform = 'scale(1)';
+            this.style.borderColor = 'rgba(255, 255, 255, 0.8)';
+          }
+        });
+      });
+      
+      // Close bubble when clicking outside
+      document.addEventListener('click', function(e) {
+        if (currentlyOpen && !currentlyOpen.contains(e.target)) {
+          const currentBubble = currentlyOpen.querySelector('.info-bubble');
+          currentBubble.classList.remove('show');
+          currentlyOpen = null;
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+          hamburger.classList.remove('active');
+          mobileMenu.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+      
+      // Keyboard navigation for accessibility
+      items.forEach((item, index) => {
+        const circle = item.querySelector('.circle');
+        circle.setAttribute('tabindex', '0');
+        circle.setAttribute('role', 'button');
+        circle.setAttribute('aria-label', `Ver información de ${item.querySelector('.item-label').textContent}`);
+        
+        circle.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            circle.click();
+          }
+          if (e.key === 'Escape' && currentlyOpen === item) {
+            const bubble = item.querySelector('.info-bubble');
+            bubble.classList.remove('show');
+            currentlyOpen = null;
+            document.body.style.overflow = '';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

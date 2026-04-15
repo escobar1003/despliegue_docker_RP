@@ -1,0 +1,166 @@
+
+    body {
+  
+      font-family: Arial, sans-serif;   /* Fuente de letra */
+      background-color: #62e39c;  /* Fondo verde del body */
+      display: flex;    /* Usa flexbox para centrar */
+      justify-content: center;   /* Centra horizontalmente */
+      padding: 40px; /* Espacio interno alrededor */
+      position: center;
+   
+    }
+
+    
+   
+    /* Contenedor con fondo animado */
+    .fondo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 120%;
+      background-image: url('../imagenes/fondorecycling.jpeg'); /* Cambia por tu imagen */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      animation: moverFondo 20s linear infinite;
+      z-index: -1; /* Esto manda la imagen al fondo */
+    }
+      
+   
+
+body {
+  background-image: url("ChatGPT\ Image\ 28\ ago\ 2025\,\ 13_35_22.png");
+  background-size: cover; /* para que cubra toda la pantalla */
+  background-position: center;
+}
+
+
+    .formulario {
+      background-color: hsla(88, 60%, 60%, 0.428);    /* Fondo verde claro */
+      padding: 30px;      /* Espaciado interno */
+      border-radius: 9px;       /* Bordes redondeados */
+      width: 360px;     /* Ancho fijo */
+      box-shadow: 0 2px 8px rgba(18, 208, 15, 0.887); /* Sombra rosa */
+    }
+
+
+    .formulario h2 {
+      text-align: center;   /* Centra el texto */
+      margin-bottom: 8px;  /* Espacio inferior */
+      
+    }
+
+    .formulario p {
+      text-align: center;   /* Centrado */
+      color: #040405;    /* Gris suave */
+      margin-top: 0;   /* Elimina espacio superior */
+      font-size: 14px;  /* Tamaño de letra */
+    }
+
+
+    .bloque.focus input {
+    padding:10px;    /* Espacio interno */
+     width:95%;     /* Ocupa todo el ancho */
+    border: 2px solid #0e511a;   /* Borde verde oscuro */
+    border-radius: 6px;    /* Bordes redondeados */
+     outline: none;    /* Quita el borde azul del navegador */
+  } 
+    .bloque.focus input:focus { 
+      border-color: rgb(55, 255, 0);  /* Verde brillante al enfocar */
+      background-color: #6ce68bf7;   /* Fondo verde claro al escribir */
+      }
+
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;     /* Que ocupen todo el ancho */
+      padding: 10px;  /* Espacio interno */
+      border: 1px solid #ccd0d5;   /* Borde gris */
+      border-radius: 5px; /* Bordes redondeados */
+      font-size: 14px;   /* Tamaño de letra */
+    }
+
+
+
+    .genero {
+      display: flex;   /* Pone opciones en fila */
+      padding: 9px 8px;     /* Espaciado */
+      justify-content: space-between;   /* Distribuye el espacio */
+      margin-bottom: 5px;  /* Espacio inferior */
+    }
+    
+
+    .genero label {
+      flex: 1;    /* Cada label ocupa el mismo espacio */
+      padding: 10px;  /* Espacio interno */
+      border: 2px solid #07340fbf;  /* Borde azul */
+      text-align: center;  /* Texto centrado */
+      font-size: 14px;     /* Tamaño de letra */
+      cursor: pointer;   /* Cambia el cursor a manito */
+       margin-right: 10px; /* separa los cuadros */
+    }
+
+    .genero input {
+      margin-right: 8px;  /* Espacio entre el circulito y el texto */
+    }
+
+    
+    .texto-informativo {
+      font-size: 11px; /* Letra pequeña */
+      color: #120404;   /* Gris */
+      margin-bottom: 10px;  /* Espacio debajo */
+    }
+
+    .condiciones {
+      font-size: 11px;  /* Letra pequeña */
+      color: #090505;  /* Gris */
+      margin-bottom: 20px;  /* Espacio debajo */
+    }
+
+    .condiciones a {
+      color: #020713; /* Azul (para los links) */
+      text-decoration: none;   /* Quita el subrayado */
+    }
+
+    .registro-btn {
+      background-color: #96e352;   /* Verde fuerte */
+      color: rgb(0, 0, 0);  /* Texto blanco */
+      padding: 10px;    /* Espacio interno */
+      width: 100%;  /* Ocupa todo el ancho */
+      font-weight: bold;   /* Texto en negrita */
+      border: none;  /* Sin borde */
+      border-radius: 5px;    /* Bordes redondeados */
+      cursor: pointer;   /* Cursor manito */
+      font-size: 16px;  /* Letra más grande */
+      
+}
+
+
+    .ya-cuenta {
+      text-align: center; /* Centrado */
+      margin-top: 15px;  /* Espacio arriba */
+    } 
+
+    .ya-cuenta a {
+      color: #03050f;   /* Azul (como link de Facebook) */
+      text-decoration: none;   /* Sin subrayado */
+      font-size: 14px;  /* Tamaño de letra */
+    }
+
+   
+
+  .imagen {
+      margin-top: 20px;
+      text-align: left; /* centra la imagen */
+    }
+
+    .imagen img {
+      width: 150px;   /* aquí ajustas qué tan chiquita quieres la imagen */
+      height: auto;   /* mantiene proporción */
+      border-radius: 50%; /* opcional: hace la imagen redonda */
+      margin-left: -280px; /* la empuja un poquito desde la izquierda */
+     margin-top: 80px;   /* ahora la bajas */
+    }

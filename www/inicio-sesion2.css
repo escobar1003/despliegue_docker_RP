@@ -1,0 +1,105 @@
+/* Fondo general */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* ocupa toda la pantalla */
+  font-family: sans-serif;
+
+  background-image: url("../imagenes/fondorecycling.jpeg"); /* cambia al nombre correcto */
+
+  background-image: url("../imagenes/fondo-recycling-points.jpg.jpeg"); /* cambia al nombre correcto */
+
+  background-size: cover;   
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Caja del login */
+.login-container {
+  background: hsla(88, 60%, 60%, 0.428);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(34, 17, 17, 0.1);
+  width: 400px; 
+  text-align: center;
+  height: auto; /* mejor que fijo en vh */
+}
+
+/* Logo */
+.imagen {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.imagen img {
+  width: 140px;   /* tamaño reducido */
+  height: auto;
+  border-radius: 50%; 
+  margin-bottom: 10px;
+}
+
+/* Botones principales */
+.botones {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.botones button,
+.botones a {
+  flex: 1;
+  padding: 12px;
+  background-color: #46c61c6f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.botones button:hover,
+.botones a:hover {
+  background-color: #2d8b32;
+  color: white;
+}
+
+/* Inputs */
+.bloque.focus input {
+  padding: 10px;
+  width: 90%;
+  border: 2px solid #46c61c60;
+  border-radius: 6px;
+  outline: none;
+  margin: 10px 0;
+}
+
+.bloque.focus input:focus {
+  border-color: rgb(95, 190, 133); 
+  background-color: #b1eabe;
+}
+
+/* Botones sociales */
+.facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.google {
+  background-color: #db4437;
+  color: white;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+

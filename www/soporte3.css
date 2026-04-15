@@ -1,0 +1,236 @@
+/* Reset y estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  background-image: url("../imagenes/fondorecycling.jpeg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-family: Arial, sans-serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- NAVBAR ----- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 35px;
+  background: rgba(137, 29, 29, 0);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.menu-button {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.menu-button img {
+ width: 100%;
+ height: auto;
+}
+
+.navbar-center {
+  display: flex;
+  gap: 15px;
+}
+
+.navbar-center a {
+  text-decoration: none;
+  color: rgb(69, 143, 73);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navbar-center a:hover {
+  color: #1c6941;
+}
+
+.avatar img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* ----- SIDE MENU ----- */
+.side-menu {
+  position: fixed;
+  left: -260px;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  background: hsla(88, 68%, 42%, 0.428);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  padding: 20px;
+  transition: 0.3s ease;
+  z-index: 1200;
+}
+
+.side-menu.open {
+  left: 0;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+}
+
+.menu-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.menu-list a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.menu-list a:hover {
+   text-decoration: none;
+  color: #185707;
+  font-weight: bold;
+  flex: 1;               /* hace que el texto se alinee y no se monte */
+  text-align: left;      /* asegura que el texto siempre quede alineado a la izquierda */
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.close-menu {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ----- CONTENIDO CENTRO DE AYUDA ----- */
+main header {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgb(255, 255, 255);
+}
+
+main header h1 {
+  font-size: 2.5em;
+}
+
+main header p {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+
+.buscador {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  gap: 10px;
+}
+
+.buscador input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+}
+
+.buscador button {
+  padding: 10px 20px;
+  background: #098b48;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buscador button:hover {
+  background: #066b36;
+  transform: scale(1.05);
+}
+
+.categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.card {
+  background: hsla(88, 60%, 60%, 0.428);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+/* ----- FOOTER ----- */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: hsla(88, 47%, 27%, 0.603);
+  color: rgb(255, 255, 255);
+  margin-top: auto;
+}
+
+

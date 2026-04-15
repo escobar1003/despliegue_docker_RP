@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>EcoWarrior - Dashboard de Recompensas</title>
+    <style>
+        /* Reset */
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{height:100%}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #e9f7ec;
+
+            background: url(../imagenes/fondorecycling.jpeg) center/cover fixed no-repeat;
+
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            overflow-y: auto;
+            margin: 0;
+        }
+
+        /* Top navigation */
+        .top-nav {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 92%;
+            max-width: 1200px;
+            background: rgba(80,80,80,0.7);
+            border-radius: 6px;
+            padding: 10px 18px;
+            display:flex;
+            gap:20px;
+            align-items:center;
+            z-index: 80;
+            backdrop-filter: blur(6px);
+        }
+        .top-nav img.logo{
+            height:34px;
+            margin-right:8px;
+
+            background: url(../imagenes/logo\ sin\ fondo.png) center/contain no-repeat    ;
+
+        }
+        .top-nav a {
+            color: #f2f5f3;
+            text-decoration:none;
+            opacity:0.95;
+            padding:8px 10px;
+            border-radius:4px;
+            font-size:0.95rem;
+        }
+        .top-nav a:hover{background: rgba(255,255,255,0.06);}
+
+        /* page container */
+        .page {
+            max-width: 1200px;
+            margin: 110px auto 60px; /* leave space for fixed menu */
+            padding: 20px;
+            position: relative;
+            z-index: 30;
+        }
+
+        .glass {
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border-radius: 16px;
+            padding: 22px;
+            border:1px solid rgba(255,255,255,0.12);
+            backdrop-filter: blur(8px) saturate(120%);
+            box-shadow: 0 8px 30px rgba(10,10,10,0.4);
+        }
+
+        /* Points card */
+        .points-card h1{font-size:1.25rem;color:#e6ffe6;margin-bottom:8px}
+        .points-value{font-size:3.2rem;font-weight:800;color:#f8fff8;letter-spacing:0.5px}
+        .points-sub{color:#c9f2c9;margin-top:6px;font-weight:600}
+
+        .points-actions{display:flex;gap:12px;margin-top:16px}
+        .btn {
+            background: rgba(255,255,255,0.06);
+            color: #f2fff2;
+            padding:10px 14px;
+            border-radius:30px;
+            border:1px solid rgba(255,255,255,0.08);
+            cursor:pointer;
+            font-weight:600;
+            font-size:0.95rem;
+        }
+        .btn:hover{transform:translateY(-4px);background:rgba(255,255,255,0.09)}
+
+        /* Rewards available card */
+        .rewards-card .section-title{font-size:1.15rem;color:#dff5d9;margin-bottom:12px}
+        .rewards-grid-top{
+            display:grid;
+            grid-template-columns: 1fr 1fr;
+            gap:14px;
+        }
+        .reward-compact{
+            padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
+            display:flex;align-items:center;gap:12px;justify-content:space-between;
+        }
+        .reward-compact .meta{display:flex;gap:10px;align-items:center}
+        .reward-compact .icon{width:48px;height:48px;border-radius:10px;background:rgba(144,238,144,0.06);display:flex;align-items:center;justify-content:center;font-size:1.3rem}
+        .reward-compact .title{font-weight:700}
+        .reward-compact .cost{color:#bff0b6;font-weight:800}
+
+        /* Middle section: three larger reward cards */
+        .middle-row{
+            display:flex;
+            gap:18px;
+            margin-bottom:28px;
+            flex-wrap:wrap;
+        }
+        .reward-big{
+            flex:1 1 30%;
+            min-width:220px;
+            background: linear-gradient(180deg, rgba(144,238,144,0.08), rgba(50,205,50,0.04));
+            border-radius:14px;
+            padding:18px;
+            border:1px solid rgba(255,255,255,0.06);
+            text-align:center;
+            box-shadow: 0 6px 18px rgba(8,8,8,0.4);
+        }
+        .reward-big h3{font-size:1.05rem;margin-bottom:6px}
+        .reward-big p{font-size:0.92rem;opacity:0.9;margin-bottom:8px}
+        .redeem-btn{display:inline-block;margin-top:8px;padding:8px 14px;border-radius:8px;background:#fff;color:#2a6a2a;font-weight:800;text-decoration:none}
+
+        /* Bottom: Movements */
+        .bottom-row{display:grid;grid-template-columns:1fr;gap:18px}
+        .recent-activities .section-title{font-size:1.15rem;color:#dff5d9;margin-bottom:10px}
+        .activity-item{
+            display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:10px;
+            background: rgba(0,0,0,0.18);border:1px solid rgba(255,255,255,0.03);
+            margin-bottom:8px;
+        }
+        .activity-left{display:flex;gap:12px;align-items:center}
+        .activity-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#7fe77f,#4aa14a);font-size:1.2rem}
+        .activity-info .title{font-weight:700}
+        .activity-info .time{font-size:0.86rem;opacity:0.85}
+
+        /* Level badge (floating on the right) */
+        .level-badge {
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            z-index: 70;
+            width:160px;
+            padding:12px;
+            border-radius:24px;
+            text-align:center;
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            border:1px solid rgba(255,255,255,0.08);
+        }
+        .level-icon{width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#dfffe0;margin-bottom:8px}
+
+        /* Central recycling graphic arrows */
+        .central-graphic{position:absolute;right:50px;top: 200px;width:260px;height:260px;opacity:0.9;z-index:40}
+        .arrow{position:absolute;width:70px;height:70px;background:linear-gradient(135deg,#90EE90,#32CD32);clip-path:polygon(0% 40%,60% 40%,40% 0%,100% 50%,40% 100%,60% 60%,0% 60%);opacity:0.95;filter:drop-shadow(0 6px 8px rgba(0,0,0,0.15))}
+        .arrow-1{top:10px;right:40px;transform:rotate(120deg);animation:arrowSpin 6s linear infinite}
+        .arrow-2{bottom:30px;right:0;transform:rotate(240deg);animation:arrowSpin 7s linear infinite reverse}
+        .arrow-3{bottom:18px;left:40px;transform:rotate(0deg);animation:arrowSpin 8s linear infinite}
+        @keyframes arrowSpin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+        /* Floating leaves (kept from original) */
+        .floating-leaves{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:20}
+        .leaf{position:absolute;width:36px;height:36px;background:linear-gradient(45deg,#bff0b6,#5fbf5f);border-radius:0 100% 0 100%;opacity:0.25;animation:float 12s infinite linear}
+        @keyframes float{0%{transform:translateY(-120px) rotate(0deg)}100%{transform:translateY(120vh) rotate(360deg)}}
+
+        /* point animation */
+        .point-animation{position:fixed;color:#d7ffd7;font-weight:800;font-size:1.15rem;pointer-events:none;z-index:90;animation:pointFloat 1.6s ease-out}
+        @keyframes pointFloat{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-60px)}}
+
+        /* Responsive */
+        @media (max-width:900px){
+            .top-row{grid-template-columns:1fr}
+            .rewards-grid-top{grid-template-columns:1fr}
+            .middle-row{flex-direction:column}
+            .central-graphic{display:none}
+            .level-badge{position:static;margin-top:12px}
+            .page{margin-top:140px}
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed top menu -->
+    <div class="top-nav" role="navigation" aria-label="menu principal">
+        <img class="logo" src="menu2.png" alt="logo"/>
+        <a href="materialespablo.html">Materiales reciclables</a>
+        <a href="puntos-recoleccion.html">Puntos de recolección</a>
+        <a href="recompensas3.html">Recompensas</a>
+        <a href="tilin.html">Historial y estadísticas</a>
+        <a href="soporte3.html">Soporte y ayuda</a>
+    </div>
+
+    <!-- Optional level badge (kept similar to original) -->
+    <div class="level-badge" aria-hidden="true">
+        <div class="level-icon">🌱</div>
+        <div style="font-weight:700">Nivel Eco-Warrior</div>
+        <div style="margin-top:8px;background:rgba(255,255,255,0.06);height:8px;border-radius:8px;overflow:hidden">
+            <div style="width:75%;height:100%;background:linear-gradient(90deg,#44d244,#9ff79f)"></div>
+        </div>
+    </div>
+
+    <!-- Decorative central arrows like in the image -->
+    <div class="central-graphic" aria-hidden="true">
+        <div class="arrow arrow-1"></div>
+        <div class="arrow arrow-2"></div>
+        <div class="arrow arrow-3"></div>
+    </div>
+
+    <!-- Floating leaves -->
+    <div class="floating-leaves" aria-hidden="true">
+        <div class="leaf" style="left:6%;animation-delay:0s"></div>
+        <div class="leaf" style="left:18%;animation-delay:2s"></div>
+        <div class="leaf" style="left:30%;animation-delay:4s"></div>
+        <div class="leaf" style="left:46%;animation-delay:1s"></div>
+        <div class="leaf" style="left:62%;animation-delay:3s"></div>
+        <div class="leaf" style="left:78%;animation-delay:5s"></div>
+    </div>
+
+    <div class="page">
+        <!-- TOP: Points + Rewards available side-by-side -->
+        <div class="top-row" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;align-items:start;">
+            <div class="glass points-card">
+                <h1>Puntos Totales</h1>
+                <div class="points-value" id="pointsValue">2,450 <span style="font-size:0.42em">pts</span></div>
+                <div class="points-sub" id="weeklyGain">+125 puntos esta semana</div>
+                <div class="points-actions">
+                    <button class="btn" onclick="recycleAction()">♻ Reciclar Ahora</button>
+                    <button class="btn" onclick="showRedeem()">🏆 Canjear Puntos</button>
+                    <button class="btn" onclick="showHistory()">📊 Ver Historial</button>
+                </div>
+            </div>
+
+            <div class="glass rewards-card">
+                <div class="section-title">Recompensas Disponibles</div>
+                <div class="rewards-grid-top">
+                    <div class="reward-compact" onclick="redeemReward('supermarket',150)">
+                        <div class="meta"><div class="icon">🛍</div><div>
+                            <div class="title">Vale Supermercado</div>
+                            <div class="subtitle">Válido en tiendas afiliadas</div>
+                        </div></div>
+                        <div class="cost">150 pts</div>
+                    </div>
+
+                    <div class="reward-compact" onclick="redeemReward('coffee',80)">
+                        <div class="meta"><div class="icon">☕</div><div>
+                            <div class="title">Café Gratis</div>
+                            <div class="subtitle">Canje inmediato</div>
+                        </div></div>
+                        <div class="cost">80 pts</div>
+                    </div>
+
+                    <div class="reward-compact" onclick="redeemReward('seeds',120)">
+                        <div class="meta"><div class="icon">🌱</div><div>
+                            <div class="title">Kit de Semillas</div>
+                            <div class="subtitle">Promueve la siembra</div>
+                        </div></div>
+                        <div class="cost">120 pts</div>
+                    </div>
+
+                    <div class="reward-compact" onclick="redeemReward('movie',850)">
+                        <div class="meta"><div class="icon">🎬</div><div>
+                            <div class="title">Entrada de Cine</div>
+                            <div class="subtitle">Válida para cualquier función</div>
+                        </div></div>
+                        <div class="cost">850 pts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE: big reward cards copied from first image -->
+        <div class="middle-row">
+            <div class="reward-big">
+                <div style="font-size:2.2rem">👕</div>
+                <h3>Camiseta Eco-Friendly</h3>
+                <p>Camiseta 100% algodón orgánico</p>
+                <div style="font-weight:800;margin-top:6px">750 pts</div>
+                <a class="redeem-btn" href="#" onclick="redeemReward('shirt',750);return false">Canjear</a>
+            </div>
+
+            <div class="reward-big">
+                <div style="font-size:2.2rem">🍕</div>
+                <h3>Descuento 50% Pizza</h3>
+                <p>Válido en restaurantes afiliados</p>
+                <div style="font-weight:800;margin-top:6px">300 pts</div>
+                <a class="redeem-btn" href="#" onclick="redeemReward('pizza',300);return false">Canjear</a>
+            </div>
+
+            <div class="reward-big">
+                <div style="font-size:2.2rem">🎟</div>
+                <h3>Entrada de Cine</h3>
+                <p>Válida para cualquier función</p>
+                <div style="font-weight:800;margin-top:6px">850 pts</div>
+                <a class="redeem-btn" href="#" onclick="redeemReward('movie',850);return false">Canjear</a>
+            </div>
+        </div>
+
+        <!-- BOTTOM: Movimientos recientes -->
+        <div class="bottom-row">
+            <div class="glass recent-activities">
+                <div class="section-title">Movimientos Recientes</div>
+
+                <div id="activitiesList">
+                    <div class="activity-item">
+                        <div class="activity-left">
+                            <div class="activity-icon">♻</div>
+                            <div class="activity-info">
+                                <div class="title">Reciclaje de botellas plásticas</div>
+                                <div class="time">Hoy, 14:30</div>
+                            </div>
+                        </div>
+                        <div class="points" style="font-weight:800;color:#bff0b6">+50 pts</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-left">
+                            <div class="activity-icon">🛒</div>
+                            <div class="activity-info">
+                                <div class="title">Canje por descuento supermercado</div>
+                                <div class="time">Ayer, 16:45</div>
+                            </div>
+                        </div>
+                        <div class="points" style="font-weight:800;color:#f0b6b6">-200 pts</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-left">
+                            <div class="activity-icon">📦</div>
+                            <div class="activity-info">
+                                <div class="title">Reciclaje de cartón</div>
+                                <div class="time">2 días atrás, 11:20</div>
+                            </div>
+                        </div>
+                        <div class="points" style="font-weight:800;color:#bff0b6">+75 pts</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-left">
+                            <div class="activity-icon">🎁</div>
+                            <div class="activity-info">
+                                <div class="title">Bonus semanal por actividad</div>
+                                <div class="time">3 días atrás, 09:00</div>
+                            </div>
+                        </div>
+                        <div class="points" style="font-weight:800;color:#bff0b6">+100 pts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        /* Data & functions */
+        let currentPoints = 2450;
+
+        function updatePointsDisplay(){
+            const el = document.getElementById('pointsValue');
+            if(el) el.innerHTML = currentPoints.toLocaleString() + ' <span style="font-size:0.42em">pts</span>';
+        }
+
+        function showPointsAnimation(points, earned=true){
+            const anim = document.createElement('div');
+            anim.className = 'point-animation';
+            anim.textContent = (earned ? '+' : '-') + points + ' pts';
+            // position near points card
+            const rect = document.querySelector('.points-card').getBoundingClientRect();
+            anim.style.left = (rect.left + rect.width*0.6) + 'px';
+            anim.style.top = (rect.top + 40) + 'px';
+            document.body.appendChild(anim);
+            setTimeout(()=>anim.remove(),1600);
+        }
+
+        function addActivity(icon,title,pts){
+            const list = document.getElementById('activitiesList');
+            const item = document.createElement('div');
+            item.className = 'activity-item';
+            item.innerHTML = `
+                <div class="activity-left">
+                    <div class="activity-icon">${icon}</div>
+                    <div class="activity-info">
+                        <div class="title">${title}</div>
+                        <div class="time">Hoy, ${String(new Date().getHours()).padStart(2,'0')}:${String(new Date().getMinutes()).padStart(2,'0')}</div>
+                    </div>
+                </div>
+                <div class="points" style="font-weight:800;color:${pts>0? '#bff0b6':'#f0b6b6'}">${pts>0? '+'+pts:'-'+Math.abs(pts)} pts</div>
+            `;
+            // insert on top
+            list.insertBefore(item, list.firstChild);
+        }
+
+        function recycleAction(){
+            const pointsEarned = Math.floor(Math.random()*50)+25;
+            currentPoints += pointsEarned;
+            updatePointsDisplay();
+            showPointsAnimation(pointsEarned,true);
+            addActivity('♻','Nuevo reciclaje realizado',pointsEarned);
+        }
+
+        function redeemReward(type,cost){
+            if(currentPoints >= cost){
+                currentPoints -= cost;
+                updatePointsDisplay();
+                showPointsAnimation(cost,false);
+                let name = type;
+                switch(type){
+                    case 'supermarket': name = 'Vale Supermercado'; break;
+                    case 'coffee': name = 'Café Gratis'; break;
+                    case 'seeds': name = 'Kit de Semillas'; break;
+                    case 'shirt': name = 'Camiseta Eco-Friendly'; break;
+                    case 'pizza': name = 'Descuento 50% Pizza'; break;
+                    case 'movie': name = 'Entrada de Cine'; break;
+                    default: name = type;
+                }
+                addActivity('🎁','Canjeado: '+name,-cost);
+                alert('¡Felicidades! Has canjeado: ' + name);
+            } else {
+                alert('No tienes suficientes puntos para este canje.');
+            }
+        }
+
+        function showRedeem(){
+            alert('Se abriría el modal de canje (demo).');
+        }
+
+        function showHistory(){
+            alert('Historial: función demo (próximamente).');
+        }
+
+        // small initialization
+        document.addEventListener('DOMContentLoaded',()=>{
+            // randomize leaves animation delay
+            document.querySelectorAll('.leaf').forEach(l=>{
+                l.style.animationDelay = (Math.random()*6)+'s';
+            });
+            // ensure points show correctly
+            updatePointsDisplay();
+        });
+    </script>
+</body>
+</html>

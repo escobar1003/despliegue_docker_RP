@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión</title>
+  <link rel="stylesheet" href="inicio-sesion2.css">
+</head>
+
+<body>
+
+<div class="login-container">
+  <h2>Bienvenido a Recycling Points</h2>
+
+  <div class="imagen">
+    <img src="../imagenes/logo sin fondo.png" alt="">
+  </div>
+
+  <br><br>
+
+  <div class="bloque focus">
+    <!-- ✅ IDs agregados -->
+    <input id="usuario" type="email" placeholder="Correo" style="margin-bottom: 10px" />
+    <br><br>
+    <input id="password" type="password" placeholder="Contraseña" style="margin-bottom: 10px" />
+  </div>
+
+  <br><br>
+
+  <div class="botones">
+    <!-- ✅ BOTÓN CORREGIDO -->
+    <button onclick="login()">INICIO DE SESIÓN</button>
+
+    <button onclick="window.location.href='registro.html'">CREAR CUENTA</button>
+  </div>
+
+  <br><br>
+
+  <a href="#">¿Olvidaste tu contraseña?</a>
+
+  <br><br>
+
+  <div class="bloque focus">  
+    <button class="facebook">FACEBOOK 👌</button>
+  </div>
+
+  <br>
+
+  <div class="bloque focus">
+    <button class="google">GOOGLE 😶‍🌫️</button>
+  </div>
+</div>
+
+<div class="imagen2">
+  <img src="../imagenes/logo sin fondo negro RP.png" alt="">
+</div>
+
+<!-- ✅ SCRIPT LOGIN -->
+<script>
+function login() {
+  const usuario = document.getElementById('usuario').value;
+  const password = document.getElementById('password').value;
+
+  if (!usuario || !password) {
+    alert("Completa los campos");
+    return;
+  }
+
+  fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      usuario: usuario,
+      password: password
+    })
+  })
+  .then(res => {
+    if (!res.ok) throw new Error("Datos incorrectos");
+    return res.text();
+  })
+  .then(data => {
+    alert("Login correcto");
+    window.location.href = "usuario.html"; // 👉 entra a la app
+  })
+  .catch(error => {
+    alert("Correo o contraseña incorrectos");
+  });
+}
+</script>
+
+</body>
+</html>

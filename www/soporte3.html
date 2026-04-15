@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro de Ayuda</title>
+  <link rel="stylesheet" href="soporte3.css">
+</head>
+<body>
+
+  <!-- Navbar con menú lateral -->
+  <header class="navbar">
+    <div class="navbar-left">
+      <button class="menu-button">
+        <img src="../imagenes/logo sin fondo.png" alt="menu">
+      </button>
+
+      <!-- Menú lateral completo -->
+      <div id="sideMenu" class="side-menu">
+        <div class="user-header">
+          <img src="../imagenes/icon.jpg" alt="Usuario" class="user-avatar">
+          <span>Usuario</span>
+        </div>
+        <ul class="menu-list">
+          <li><i class="icon">🏠</i> <a href="inicio.html">Inicio</a></li>
+          <li><i class="icon">♻</i> <a href="materialespablo.html">Materiales reciclables</a></li>
+          <li><i class="icon">📍</i> <a href="puntos-recoleccion.html">Puntos de recolección</a></li>
+          <li><i class="icon">🎁</i> <a href="recompensas3.html">Recompensas</a></li>
+          <li><i class="icon">📚</i> <a href="educacion-conciencia.html">Educación y Conciencia</a></li>
+          <li><i class="icon">📝</i> <a href="registro.html">Registro</a></li>
+          <li><i class="icon">📊</i> <a href="#">Historial y estadísticas</a></li>
+          <li><i class="icon">🔔</i> <a href="#">Notificaciones</a></li>
+          <li><i class="icon">📑</i> <a href="#">Mis reportes</a></li>
+          <li><i class="icon">🧾</i> <a href="#">Recibos</a></li>
+        </ul>
+        <span class="close-menu">&times;</span>
+      </div>
+    </div>
+
+    <nav class="navbar-center">
+      <a href="materialespablo.html">Materiales reciclables</a>
+      <a href="puntos-recoleccion.html">Puntos de recolección</a>
+      <a href="recompensas3.html">Recompensas</a>
+      <a href="tilin.html">Historial y estadísticas</a>
+      <a href="soporte3.html">Soporte y ayuda</a>
+      <button class="avatar">
+        <img src="./imagenes/icon.jpg" alt="Perfil">
+      </button>
+    </nav>
+
+    <div class="navbar-right">
+      <div class="user-info">
+        <!-- aquí puedes poner nombre de usuario o botones -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenido de Centro de Ayuda -->
+  <main>
+    <header>
+      <h1>Centro de Ayuda</h1>
+      <p>Encuentra respuestas o contacta con nuestro equipo de soporte</p>
+    </header>
+
+    <section class="buscador">
+      <input type="text" placeholder="🔍 Buscar ayuda...">
+      <button>Buscar</button>
+    </section>
+
+    <section class="categorias">
+      <div class="card">
+        <h3>⚙️ Problemas Técnicos</h3>
+        <p>Soluciones para errores y fallos técnicos.</p>
+      </div>
+      <div class="card">
+        <h3>💳 Pagos</h3>
+        <p>Información sobre facturación y métodos de pago.</p>
+      </div>
+      <div class="card">
+        <h3>👤 Cuenta</h3>
+        <p>Ayuda con el inicio de sesión, perfil y seguridad.</p>
+      </div>
+      <div class="card">
+        <h3>📩 Contacto</h3>
+        <p>Comunícate directamente con nosotros.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - Soporte y Ayuda</p>
+  </footer>
+
+  <!-- Script para abrir/cerrar el menú -->
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const sideMenu = document.querySelector("#sideMenu");
+    const closeMenu = document.querySelector(".close-menu");
+
+    // Abrir menú
+    menuButton.addEventListener("click", () => {
+      sideMenu.classList.add("open");
+    });
+
+    // Cerrar menú
+    closeMenu.addEventListener("click", () => {
+      sideMenu.classList.remove("open");
+    });
+
+    // Cerrar si se hace clic fuera
+    document.addEventListener("click", (e) => {
+      if (sideMenu.classList.contains("open") &&
+          !sideMenu.contains(e.target) &&
+          !menuButton.contains(e.target)) {
+        sideMenu.classList.remove("open");
+      }
+    });
+  </script>
+</body>
+</html>
+
+

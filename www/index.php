@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycling Points</title>
+    <link rel="stylesheet" type="text/css" href="inicio.css"/>
+</head>
+<body>
+     <header class="navbar">
+        <div class="navbar-left">
+            <button class="menu-button" ></button>
+            
+        </div>
+        <nav class="navbar-center">
+            <a href="materialespablo.html">Materiales reciclables</a>
+            <a href="recompensas3.html">Recompensas</a>
+            <a href="tilin.html">Estadisticas</a>
+            <a href="soporte3.html">Soporte y ayuda</a>
+           
+        </nav>
+        <div>
+          <button class="avatar" style="position: fixed;"> <a href="inicio-sesion2.html">inicio sesion</a></button>
+        </div>
+        <div class="navbar-right">
+            <div class="user-info">
+               
+                
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="hero">
+         <div class="card">
+    <div class="circle">
+      <span class="logo"></span>
+    </div>
+    <div class="content">
+      <h2>Recicla y Gana♻️</h2>
+      <p>por reciclar obtendrás bonos de canjeos y premios en descuentos y efectivo</p>
+      <button>¡Go!</button>
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <div class="circle">
+      <span class="logo"></span>
+      
+    </div>
+    <div class="content">
+      <h2>Dale Vida a tu Mundo🌍</h2>
+      <p>Haz que tu huella sea verde y deja un planeta más limpio para las próximas generaciones.</p>
+      <button>¡Go!</button>
+    </div>
+  </div>
+
+  
+  <div class="card">
+    <div class="circle">
+      <span class="logo"></span>
+    
+    </div>
+    <div class="content">
+      <h2>Pequeños Gestos,Grandes Cambios</h2>
+      <p>Tus acciones diarias suman 💹 y pueden transformar el futuro de todos🌎.</p>
+      <button>¡Go!</button>
+    </div>
+  </div>
+
+</div>
+
+
+    </section>
+
+    
+    <section class="objetivo">
+        <div class="objetivo-texto">
+            <h3 class="r">Reciclar nunca fue tan facil</h3>
+            <p class="p">
+               <strong><P> Conecta con puntos de recolección cercanos,</P>
+               <P> gana recompensas y ayuda a construir </P>
+               <P> un Popayán más limpio y sostenible. </P></strong>
+            </p>
+            <h2 class="h"><P>¡Únete hoy y transforma tus </P>
+                residuos en oportunidades! </h2>
+
+                <div class="contenedor">
+                    <button class="c">comencemos</button>
+                </div>
+
+
+
+        </div>
+
+        <div class="imagen" >
+          <img class="img" src="../imagenes/ninos-reciclando-cuidemos-el-planeta-juntos.jpg" alt="">
+    <div >
+      <button class="but">Conoce qué materiales se reciclan y cuáles no</button>
+    </div>
+    </section>
+
+    <section class="objetivo1">
+      <div class="objetivo-texto1">
+        <h3 class="s">¿Sabes cómo usar nuestra plataforma?</h3>
+        <h3 class="s">¡Es más fácil de lo que imaginas!</h3>
+         <strong><p>Sigue unos simples pasos y comienza a </p>
+                    <P>  reciclar ganando recompensas.</P></strong>
+         <button class="z">Guia paso a paso..</button>             
+
+      </div>
+
+      <div class="ult">
+        <h3 class="ul3">Califícanos y sé parte del CAMBIO.</h3>
+        <h3 class="ul"><p>Cada comentario nos impulsa a crecer</p>
+                   y hacer que reciclar sea más fácil.</h3>
+         <button class="ul2">calificanos</button>          
+      </div>
+
+    </section>
+
+    <section class="nuestra-mision">
+  <h2 class="nu">Nuestra misión</h2>
+  <p>
+    Facilitar y promover el reciclaje a través de soluciones ecológicamente accesibles,</p>
+  <p>  conectando a los ciudadanos con puntos de recolección estratégicos y fomentando la</p>
+   <p> educación ambiental mediante incentivos que transformen los hábitos de consumo hacia</p>
+   <p> un futuro más sostenible.</p>
+  
+  <button class="btn-mision">Más sobre nosotros...</button>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <p>© 2025 🐱‍👤Recycling Points♻♻💹. Todos los derechos reservados.</p>
+    <a href="#">Consulta nuestros Términos y Condiciones</a>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>

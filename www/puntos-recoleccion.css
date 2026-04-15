@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../imagenes/fondo-recycling-points.jpg.jpeg);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* navegador botones */
+.navegador .logo img{
+    display: block;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.1s ease;
+}
+
+.navegador .logo img:hover {
+    animation: bounce 0.6s ease;
+}
+@keyframes bounce {
+    0%   { transform: translateY(0); }
+    30%  { transform: translateY(-8px); }
+    50%  { transform: translateY(0); }
+    70%  { transform: translateY(-4px); }
+    100% { transform: translateY(0); }
+}
+
+.navegador {
+    padding: 30px 30px;
+}
+
+.navegador ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navegador a {
+    color: rgb(55, 150, 98);
+
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.navegador ul li a{
+    display: inline-block; 
+    transition: transform 0.3s ease;
+}
+.navegador ul li a:hover {
+    transform: scale(1.2);
+}
+
+.navegador .login a {
+    background-color: rgb(59, 172, 103);
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.titulo {
+    text-align: center;
+    background-color: rgba(10, 74, 10, 0.4);
+    padding: 20px;
+    color: white;
+}
+
+.titulo h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.titulo p {
+    font-size: 18px;
+    margin: 8px 0;
+}
+
+.botones_spaceholder {
+    background: #033a1bcd;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+/* mapa y filtros */
+.mapa-contenedor {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin: 20px;
+    padding-top: 20px;
+}
+
+.mapa {
+    background: url(../imagenes/mapa\ .png) no-repeat center;
+    background-size: cover;
+    border-radius: 10px;
+    height: 400px;
+}
+
+.filtros {
+    background-color: rgba(255,255,255,0.6);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filtros h2 {
+    margin-bottom: 10px;
+}
+
+.filtros-grupo {
+    margin-bottom: 15px;
+}
+
+.filtros label {
+    display: block;
+    margin: 5px 0;
+}
+
+.precoleccion {
+    list-style: none;
+}
+
+.precoleccion li {
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.abierto {
+    color: green;
+    font-size: 13px;
+}
+
+/* puntos */
+.detalles {
+    margin: 20px;
+}
+
+.tdatos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.lugar {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.lugar h3 {
+    color: #0a8c4c;
+}
+
+.materiales {
+    margin-top: 10px;
+}
+
+.material {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 2px;
+    color: white;
+}
+
+.material.plastico { background: #007bff; }
+.material.papel { background: #28a745; }
+.material.vidrio { background: #d4af37; }
+.material.metal { background: #6c757d; }
+
+/** pie de pagina **/
+
+.terminos {
+  padding: 10px;
+  font-size: 14px; 
+  color: #333;
+  display: block;
+  bottom: 0%;
+  right: 0%;
+  text-align: left;
+  border-top: 1px solid #ccc;
+}
+.terminos {
+  color: black;
+  text-decoration: none;
+}
+
+.terminos:hover {
+  text-decoration: underline;
+}
