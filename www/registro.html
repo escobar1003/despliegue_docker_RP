@@ -82,15 +82,20 @@ function registrar() {
       password: password
     })
   })
-  .then(res => res.text())
-  .then(data => {
-    alert(data);
-    window.location.href = "inicio-sesion1.html"; // ir a login
-  })
-  .catch(error => {
-    console.error(error);
-    alert("Error al registrar");
-  });
+  .then(res => {
+  if (!res.ok) {
+    throw new Error("Error en el servidor");
+  }
+  return res.text();
+})
+.then(data => {
+  alert(data);
+  window.location.href = "./index.html";
+})
+.catch(error => {
+  console.error(error);
+  alert("Error al registrar");
+});
 }
 </script>
 
